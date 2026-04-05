@@ -17,7 +17,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="fixed bottom-0 left-0 w-full min-h-[65vh] md:min-h-[65vh] overflow-hidden text-white flex flex-col justify-between z-0"
+            className="fixed bottom-0 left-0 w-full min-h-[60vh] md:min-h-[75vh] overflow-hidden text-white flex flex-col justify-between z-0 pointer-events-none"
             style={{ background: "#800000" }}
         >
             <div
@@ -45,7 +45,8 @@ const Footer = () => {
                     />
                 </div>
 
-                <div className="flex flex-col gap-6 items-center md:items-end text-center md:text-right md:w-1/3">
+                {/* Pointer events auto applied to restore interactivity inside the pointer-events-none footer */}
+                <div className="flex flex-col gap-6 items-center md:items-end text-center md:text-right md:w-1/3 pointer-events-auto">
                     {/* Hide text links on mobile */}
                     <nav className="hidden md:flex flex-col gap-3">
                         {otherLinks.map((link) => (
@@ -79,8 +80,8 @@ const Footer = () => {
 
             <div className="relative z-10 overflow-hidden leading-none select-none px-4 pt-4 md:pt-16 pb-4 md:pb-8">
                 <p
-                    className="font-black text-white whitespace-nowrap uppercase opacity-90 text-center"
-                    style={{ fontSize: "clamp(3.6rem, 15vw, 18rem)", lineHeight: 0.8, letterSpacing: "-0.02em" }}
+                    className="font-black text-white whitespace-nowrap uppercase opacity-90 text-center text-[clamp(2.5rem,11vw,8rem)] md:text-[clamp(3.6rem,15vw,18rem)]"
+                    style={{ lineHeight: 0.8, letterSpacing: "-0.02em" }}
                 >
                     HACKSERIES
                 </p>

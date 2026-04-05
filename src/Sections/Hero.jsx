@@ -13,7 +13,7 @@ const Hero = () => {
                     intensity={0.5}
                     pupilSize={0.45}
                     irisWidth={0.4}
-                    glowIntensity={0}
+                    glowIntensity={0.2}
                     scale={2.4}
                     noiseScale={1.9}
                     pupilFollow={0.8}
@@ -21,8 +21,6 @@ const Hero = () => {
                     backgroundColor="#060010"
                 />
             </div>
-
-            <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,_transparent_30%,_#000_100%)] opacity-35 pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
 
@@ -75,9 +73,9 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2 }}
-                        className="text-gray-300 mt-8 text-sm md:text-xl font-light tracking-widest max-w-3xl mx-auto px-4 uppercase"
+                        className="text-gray-300 mt-8 text-2xl font-bold tracking-widest max-w-3xl mx-auto px-4 uppercase"
                     >
-                        Step into the vault. Forge the future of code.
+                        Learn . Build . Innovate
                     </motion.p>
                 </div>
 
@@ -100,7 +98,7 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-[5]" />
+            <div className="hidden md:block absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-[5]" />
         </section>
     );
 };

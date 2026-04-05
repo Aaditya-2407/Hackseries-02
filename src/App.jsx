@@ -1,6 +1,8 @@
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Hero from './Sections/Hero'
+import Why from './Sections/Why'
+import Impact from './Sections/Impact'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       {/* Main content area */}
       <main className="flex-grow">
         <Hero />
+        <Why />
+        <Impact />
       </main>
 
       <Footer />

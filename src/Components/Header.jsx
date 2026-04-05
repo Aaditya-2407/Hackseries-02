@@ -51,16 +51,19 @@ const Header = () => {
                     </button>
                 </div>
 
-                {/* Mobile Join Button */}
-                <div className="md:hidden">
-                    <button className="text-xs border-2 border-[#D4AF37] px-4 py-1 font-bold text-[#D4AF37]">
-                        JOIN
-                    </button>
-                </div>
+
             </div>
 
             {/* Mobile Sidebar */}
             <div className={`fixed inset-0 bg-black/98 z-[99] transition-transform duration-500 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                {/* Close Button */}
+                <button
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-6 right-6 text-[#D4AF37] hover:text-white transition-colors z-[100]"
+                    aria-label="Close menu"
+                >
+                    <X size={36} />
+                </button>
                 <ul className="flex flex-col items-center justify-center h-full gap-12 font-boldonse text-2xl tracking-[0.3em]">
                     {navLinks.map((link) => (
                         <li key={link.name} onClick={() => setIsOpen(false)} className="hover:text-[#D4AF37] cursor-pointer">

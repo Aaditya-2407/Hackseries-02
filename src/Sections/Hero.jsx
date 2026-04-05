@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import PhoenixLogo from '../assets/phoenix-vector.svg';
 import EvilEye from '../Components/EvilEye';
 
-
 const Hero = () => {
     return (
         <section className="relative min-h-[85vh] w-full bg-[#060010] flex items-center justify-center overflow-hidden">
 
-            {/* EvilEye Background */}
             <div className="absolute inset-0 z-0">
                 <EvilEye
                     eyeColor="#4b1111"
@@ -24,8 +22,9 @@ const Hero = () => {
                 />
             </div>
 
-            <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+            <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,_transparent_30%,_#000_100%)] opacity-35 pointer-events-none" />
 
+            <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -43,7 +42,7 @@ const Hero = () => {
                     <img
                         src={PhoenixLogo}
                         alt="Phoenix"
-                        className="w-56 h-56 md:w-96 md:h-96 object-contain brightness-110"
+                        className="w-56 h-56 md:w-96 md:h-96 object-contain brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]"
                     />
 
                     <motion.div
@@ -76,33 +75,32 @@ const Hero = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.2 }}
-                        className="text-gray-500 mt-8 text-sm md:text-xl font-light tracking-widest max-w-3xl mx-auto px-4 uppercase"
+                        className="text-gray-300 mt-8 text-sm md:text-xl font-light tracking-widest max-w-3xl mx-auto px-4 uppercase"
                     >
                         Step into the vault. Forge the future of code.
                     </motion.p>
                 </div>
 
-                {/* 4. CALL TO ACTION */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.5 }}
-                    className="mt-14 flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-8 sm:px-0"
+                    className="mt-14 flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-8 sm:px-0 relative z-20"
                 >
                     <a href="https://aces-hackseries.vercel.app/docs/Job%20Description.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-14 py-4 bg-[#D4AF37] text-black font-boldonse font-bold tracking-[0.2em] hover:bg-white transition-all duration-500 shadow-[0_10px_30px_rgba(212,175,55,0.2)]">
+                        className="px-14 py-4 bg-[#D4AF37] text-black font-boldonse font-bold tracking-[0.2em] hover:bg-white hover:scale-105 transition-all duration-300  text-center flex items-center justify-center"
+                    >
                         Resources
                     </a>
-                    <button className="px-14 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-boldonse font-bold tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black transition-all duration-500">
+                    <button className="px-14 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-boldonse font-bold tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black hover:scale-105 transition-all duration-300">
                         LEARN MORE
                     </button>
                 </motion.div>
             </div>
 
-            {/* Bottom Decorative Fade */}
-            <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-[5]" />
         </section>
     );
 };

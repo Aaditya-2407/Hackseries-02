@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PhoenixLogo from '../assets/logo (1).png';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const Header = () => {
                     <ul className="hidden lg:flex flex-1 justify-end mr-10 gap-8 xl:gap-12 items-center text-sm lg:text-base font-boldonse tracking-[0.2em] whitespace-nowrap">
                         {navLinks.map((link) => (
                             <li key={link.name} className="hover:text-[#D4AF37] transition-all cursor-pointer font-bold">
-                                <a href={link.href} className="block">{link.name}</a>
+                                <Link to={link.href} className="block">{link.name}</Link>
                             </li>
                         ))}
                     </ul>
@@ -69,7 +70,7 @@ const Header = () => {
             <div className="flex flex-col items-center justify-center h-full gap-12 font-boldonse text-2xl tracking-[0.3em]">
                 {navLinks.map((link) => (
                     <div key={link.name} onClick={() => setIsOpen(false)} className="hover:text-[#D4AF37] cursor-pointer">
-                        <a href={link.href} className="block">{link.name}</a>
+                        <Link to={link.href} className="block">{link.name}</Link>
                     </div>
                 ))}
                 <button className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full">

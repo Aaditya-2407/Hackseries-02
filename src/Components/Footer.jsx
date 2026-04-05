@@ -17,7 +17,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="relative isolate w-full min-h-[60vh] md:min-h-[65vh] overflow-hidden text-white flex flex-col justify-between z-0"
+            className="fixed bottom-0 left-0 w-full min-h-[60vh] md:min-h-[65vh] overflow-hidden text-white flex flex-col justify-between z-0 pointer-events-none"
             style={{ background: "#800000" }}
         >
             <div
@@ -45,7 +45,7 @@ const Footer = () => {
                     />
                 </div>
 
-                <div className="flex flex-col gap-6 items-center md:items-end text-center md:text-right md:w-1/3">
+                <div className="flex flex-col gap-6 items-center md:items-end text-center md:text-right md:w-1/3 pointer-events-auto">
                     <nav className="hidden md:flex flex-col gap-3">
                         {otherLinks.map((link) => (
                             <a

@@ -15,18 +15,18 @@ import RoadmapCloud from './Pages/RoadmapCloud'
 
 function Home() {
   return (
-    /* This single DIV wraps everything */
-    <div className="flex flex-col min-h-screen w-full bg-black overflow-x-hidden">
+    <div className="relative w-full bg-black overflow-x-hidden">
 
       <Header />
 
-      {/* Main content area */}
-      <main className="grow">
+
+      <main className="relative z-10 w-full bg-black shadow-[0_50px_50px_rgba(0,0,0,0.5)] mb-[60vh] md:mb-[65vh]">
         <Hero />
         <Why />
         <Impact />
         <RoadmapsGrid />
       </main>
+
 
       <Footer />
 
@@ -47,7 +47,6 @@ function App() {
           <Route path="dsa" element={<RoadmapDSA />} />
         </Route>
       </Routes>
-
     </BrowserRouter>
   )
 }

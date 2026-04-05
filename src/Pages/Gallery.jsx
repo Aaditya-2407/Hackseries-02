@@ -15,10 +15,11 @@ const Gallery = () => {
   const images = [img1, img2, img3];
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-black overflow-x-hidden text-white font-boldonse">
+    <div className="relative w-full bg-black overflow-x-hidden text-white">
       <Header />
-      
-      <main className="grow pt-32 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto w-full">
+
+      <main className="relative z-10 w-full bg-black min-h-screen mb-[60vh] md:mb-[65vh] shadow-[0_50px_50px_rgba(0,0,0,0.5)]">
+        <div className="pt-32 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto w-full">
         {/* Header Section */}
         <div className="flex items-center mb-12 gap-6 relative">
             <button 
@@ -57,6 +58,7 @@ const Gallery = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
             ))}
+        </div>
         </div>
       </main>
 

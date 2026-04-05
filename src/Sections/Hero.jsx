@@ -5,7 +5,7 @@ import EvilEye from '../Components/EvilEye';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[85vh] w-full bg-[#060010] flex items-center justify-center overflow-hidden">
+        <section id="home" className="relative min-h-[85vh] w-full bg-[#060010] flex items-center justify-center overflow-hidden">
 
             <div className="absolute inset-0 z-0">
                 <EvilEye

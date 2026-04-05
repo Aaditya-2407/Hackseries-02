@@ -12,73 +12,69 @@ const Header = () => {
     ];
 
     return (
-        <nav className="bg-[#0a0a0a] text-white px-6 py-6 border-b border-[#D4AF37]/20 sticky top-0 z-[100]">
-            {/* Header Content Wrapper */}
-            <div className="w-full flex items-center justify-between md:grid md:grid-cols-3">
+        <div className="fixed top-4 w-full z-[100] px-4 md:px-8 flex justify-center pointer-events-none">
+            <nav className="pointer-events-auto w-full max-w-[1400px] bg-[#0a0a0a]/80 backdrop-blur-md text-white px-6 py-3 border border-[#D4AF37]/30 rounded-2xl md:rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all">
+                <div className="flex items-center justify-between">
 
-                {/* Left Navigation */}
-                <ul className="hidden md:flex gap-10 justify-start items-center text-lg font-boldonse tracking-[0.25em]">
-                    {navLinks.slice(0, 2).map((link) => (
-                        <li key={link.name} className="hover:text-[#D4AF37] transition-all cursor-pointer font-bold">
-                            <a href={link.href} className="block">{link.name}</a>
-                        </li>
-                    ))}
-                </ul>
+                    {/* Logo (Left) */}
+                    <div className="flex items-center gap-3">
+                        <img
+                            src={PhoenixLogo}
+                            alt="Logo"
+                            className="w-10 h-10 object-contain"
+                        />
+                        <h1 className="text-2xl md:text-3xl font-boldonse font-bold tracking-tighter">
+                            HACK<span className="text-[#D4AF37]">SERIES</span>
+                        </h1>
+                    </div>
 
-                {/* Mobile Toggle */}
-                <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-[#D4AF37]">
-                        {isOpen ? <X size={32} /> : <Menu size={32} />}
-                    </button>
+                    {/* Navigation */}
+                    <ul className="hidden md:flex flex-1 justify-end mr-10 gap-12 items-center text-sm lg:text-base font-boldonse tracking-[0.2em] whitespace-nowrap">
+                        {navLinks.map((link) => (
+                            <li key={link.name} className="hover:text-[#D4AF37] transition-all cursor-pointer font-bold">
+                                <a href={link.href} className="block">{link.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Right Button */}
+                    <div className="hidden md:flex items-center justify-end">
+                        <button className="px-6 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase rounded-full whitespace-nowrap">
+                            REGISTRATION
+                        </button>
+                    </div>
+
+                    {/* Mobile Toggle */}
+                    <div className="md:hidden flex items-center">
+                        <button onClick={() => setIsOpen(!isOpen)} className="text-[#D4AF37] hover:text-white transition-colors">
+                            <Menu size={28} />
+                        </button>
+                    </div>
+
                 </div>
 
-                {/* Center Branding - Increased to 3xl/4xl and removed shadow */}
-                <div className="flex items-center justify-center gap-4">
-                    <img
-                        src={PhoenixLogo}
-                        alt="Logo"
-                        className="w-12 h-12 object-contain"
-                    />
-                    <h1 className="text-3xl md:text-4xl font-boldonse font-bold tracking-tighter">
-                        HACK<span className="text-[#D4AF37]">SERIES</span>
-                    </h1>
-                </div>
-
-                {/* Right Navigation */}
-                <div className="hidden md:flex gap-10 justify-end items-center text-lg font-boldonse tracking-[0.25em]">
-                    <li className="list-none hover:text-[#D4AF37] transition-all cursor-pointer font-bold">
-                        <a href="#contact" className="block">CONTACT US</a>
-                    </li>
-                    <button className="px-6 py-2 border-2 border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase">
-                        REGISTRATION
+                {/* Mobile Sidebar */}
+                <div className={`fixed inset-0 bg-black/98 z-[101] transition-transform duration-500 md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        className="absolute top-8 right-8 text-[#D4AF37] hover:text-white transition-colors z-[102]"
+                        aria-label="Close menu"
+                    >
+                        <X size={36} />
                     </button>
+                    <div className="flex flex-col items-center justify-center h-full gap-12 font-boldonse text-2xl tracking-[0.3em]">
+                        {navLinks.map((link) => (
+                            <div key={link.name} onClick={() => setIsOpen(false)} className="hover:text-[#D4AF37] cursor-pointer">
+                                <a href={link.href} className="block">{link.name}</a>
+                            </div>
+                        ))}
+                        <button className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full">
+                            REGISTRATION
+                        </button>
+                    </div>
                 </div>
-
-
-            </div>
-
-            {/* Mobile Sidebar */}
-            <div className={`fixed inset-0 bg-black/98 z-[99] transition-transform duration-500 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                {/* Close Button */}
-                <button
-                    onClick={() => setIsOpen(false)}
-                    className="absolute top-6 right-6 text-[#D4AF37] hover:text-white transition-colors z-[100]"
-                    aria-label="Close menu"
-                >
-                    <X size={36} />
-                </button>
-                <ul className="flex flex-col items-center justify-center h-full gap-12 font-boldonse text-2xl tracking-[0.3em]">
-                    {navLinks.map((link) => (
-                        <li key={link.name} onClick={() => setIsOpen(false)} className="hover:text-[#D4AF37] cursor-pointer">
-                            <a href={link.href} className="block">{link.name}</a>
-                        </li>
-                    ))}
-                    <button className="mt-6 px-12 py-4 bg-[#D4AF37] text-black font-bold text-lg">
-                        REGISTRATION
-                    </button>
-                </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
     );
 };
 

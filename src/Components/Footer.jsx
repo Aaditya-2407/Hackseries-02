@@ -17,7 +17,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="fixed bottom-0 left-0 w-full min-h-[60vh] md:min-h-[65vh] overflow-hidden text-white flex flex-col justify-between z-0 pointer-events-none"
+            className="fixed bottom-0 left-0 right-0 min-h-[60vh] md:min-h-[65vh] overflow-hidden text-white flex flex-col justify-between z-0 pointer-events-none"
             style={{ background: "#800000" }}
         >
             <div

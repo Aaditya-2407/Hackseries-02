@@ -23,7 +23,7 @@ const roadmap = [
     },
     {
         title: "Tools and Libraries",
-        icon: "https://cdn-icons-png.flaticon.com/512/1001/1001010.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/4149/4149670.png",
         desc: "Scipy, Scikit-learn, Keras, TensorFlow, PyTorch, Pandas, Numpy, OpenCV, Docker, Jupyter Notebook",
     },
     {
@@ -60,7 +60,7 @@ const roadmap = [
 
 const RoadmapAIML = () => {
     return (
-        <RoadmapTemplate roadmap={roadmap} heading="AI & ML" />
+        <RoadmapTemplate roadmap={roadmap} heading="AI & ML" resources="AI & ML resources Doc.pdf" />
     );
 };
 

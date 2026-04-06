@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { BookOpen, ChevronUpIcon } from "lucide-react";
+import { BookOpen, ChevronUpIcon, MoveLeft } from "lucide-react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
-const RoadmapTemplate = ({ roadmap, heading }) => {
-    
+const RoadmapTemplate = ({ roadmap, heading, resources }) => {
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -50,6 +52,15 @@ const RoadmapTemplate = ({ roadmap, heading }) => {
         return <img src={src} alt={alt} className="size-6" />;
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        //scrollToTop();
+        window.scrollTo({ top: 0 });
+    }, []);
+
     return (
         <div className="bg-[#010101] min-h-screen text-white selection:bg-[#D4AF37]/30">
             {/* Header Section */}
@@ -79,14 +90,21 @@ const RoadmapTemplate = ({ roadmap, heading }) => {
 
             {/* Resources Action Area */}
             <div className="flex justify-center mb-20 relative z-10 px-6">
-                <motion.button
-                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.2)" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group flex items-center gap-3 bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-3 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#D4AF37] hover:text-black"
-                >
-                    <BookOpen size={18} className="group-hover:animate-pulse" />
-                    Resources
-                </motion.button>
+                <Link to="/">
+                    <button className="cursor-pointer flex items-center gap-3 bg-transparent px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:text-[#D4AF37]">
+                        <MoveLeft size={18} /> Home
+                    </button>
+                </Link>
+                <a href={`/docs/${resources}`} target="_blank">
+                    <motion.button
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.2)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="group cursor-pointer flex items-center gap-3 bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-3 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-[#D4AF37] hover:text-black"
+                    >
+                        <BookOpen size={18} className="group-hover:animate-pulse" />
+                        Resources
+                    </motion.button>
+                </a>
             </div>
 
             {/* Content List */}
@@ -127,14 +145,12 @@ const RoadmapTemplate = ({ roadmap, heading }) => {
                                         {/* Card Decoration */}
                                         {/*  <div className="absolute -inset-0.5 bg-linear-to-r from-[#D4AF37]/50 to-transparent rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500" /> */}
 
-                                        <div className="relative bg-[#0a0a0a] border-white/10 p-8 rounded-2xl shadow-2xl transition-all duration-300 group-hover:border-[#D4AF37]/40"
-                                            style={index % 2 === 0 ? {
-                                                clipPath: "polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)",
-                                                paddingRight: "4rem"
-                                            } : {
-                                                clipPath: "polygon(15% 0, 100% 0, 100% 100%, 15% 100%, 0 50%)",
-                                                paddingLeft: "5rem"
-                                            }}>
+                                        <div
+                                            className={`relative bg-[#0c0c0c] p-8 rounded-2xl transition-all duration-300 [clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] pl-20 md:pl-8 translate-x-5 md:translate-0 ${index % 2 === 0
+                                                ? "md:[clip-path:polygon(0_0,85%_0,100%_50%,85%_100%,0_100%)] md:pr-16"
+                                                : "md:[clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] md:pl-20"
+                                                }`}
+                                        >
                                             {/* Decorative Corner */}
                                             {/* <div className="absolute top-0 right-0 w-16 h-16 bg-[#D4AF37]/5 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> */}
 
@@ -164,7 +180,7 @@ const RoadmapTemplate = ({ roadmap, heading }) => {
                     </motion.div>
 
                     {/* Final Finish Indicator */}
-                    <div className="flex flex-col items-center mt-30">
+                    <div className="flex flex-col items-center mt-30" onClick={scrollToTop}>
                         <div
                             className="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-black shadow-[0_0_30px_rgba(212,175,55,0.4)]"
                         >

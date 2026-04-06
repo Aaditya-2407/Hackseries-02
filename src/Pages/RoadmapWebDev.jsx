@@ -45,7 +45,7 @@ const roadmap = [
 
 const RoadmapWebDev = () => {
     return (
-        <RoadmapTemplate roadmap={roadmap} heading="Web Development" />
+        <RoadmapTemplate roadmap={roadmap} heading="Web Development" resources="WEB DEV.pdf" />
     );
 };
 

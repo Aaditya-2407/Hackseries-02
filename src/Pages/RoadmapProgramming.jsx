@@ -8,7 +8,7 @@ const roadmap = [
     },
     {
         title: "Paradigms in Programming (Types of Approaches)",
-        icon: "https://cdn-icons-png.flaticon.com/512/2329/2329087.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/9068/9068671.png",
         desc: "Procedural: Break down tasks into procedures or routines (functions). Example: C++. Object-Oriented (OOP): Organize code around objects (data and functions). Example: Python, Java. Functional: Focus on computation through mathematical functions.",
     },
     {
@@ -18,7 +18,7 @@ const roadmap = [
     },
     {
         title: "Key Concepts in OOP",
-        icon: "https://cdn-icons-png.flaticon.com/512/10434/10434199.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/190/190411.png",
         desc: "Class, Object, Inheritance, Polymorphism, Encapsulation, Abstraction.",
     },
     {
@@ -33,14 +33,14 @@ const roadmap = [
     },
     {
         title: "How to Choose the Right Language?",
-        icon: "https://cdn-icons-png.flaticon.com/512/5261/5261874.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/189/189664.png",
         desc: "C++: Choose if you're interested in systems programming, game development, or understanding how computers work at a low level. Python: Ideal if you want a simple start to programming, or are interested in data science, web development, or automation. Java: Best if you're looking into enterprise applications, Android development, or backend systems.",
     },
 ];
 
 const RoadmapProgramming = () => {
     return (
-        <RoadmapTemplate roadmap={roadmap} heading="Programming Language" />
+        <RoadmapTemplate roadmap={roadmap} heading="Programming Language" resources="Programming-language.pdf" />
     );
 };
 

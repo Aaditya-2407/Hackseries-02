@@ -23,19 +23,19 @@ const roadmap = [
     },
     {
         title: "Graphs",
-        icon: "https://cdn-icons-png.flaticon.com/512/2335/2335272.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
         desc: "Graph Representation and Management: Learn the fundamentals of graph representation. Graph Traversal Algorithms: BFS, DFS. Shortest Path Algorithms: Dijkstra's Algorithm, Bellman-Ford Algorithm. Minimum Spanning Tree: Prim's Algorithm, Kruskal's Algorithm.",
     },
     {
         title: "Algorithm Design Strategies",
-        icon: "https://cdn-icons-png.flaticon.com/512/1491/1491214.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/9068/9068676.png",
         desc: "Divide and Conquer, Greedy Algorithms, Dynamic Programming (DP), Backtracking.",
     },
 ];
 
 const RoadmapDSA = () => {
     return (
-        <RoadmapTemplate roadmap={roadmap} heading="Data-Structures & Algorithm" />
+        <RoadmapTemplate roadmap={roadmap} heading="Data-Structures & Algorithm" resources="DSA.pdf" />
     );
 };
 

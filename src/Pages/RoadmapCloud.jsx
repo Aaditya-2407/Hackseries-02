@@ -8,7 +8,7 @@ const roadmap = [
     },
     {
         title: "Learn Operating Systems and Networking",
-        icon: "https://cdn-icons-png.flaticon.com/512/3208/3208858.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/6947/6947575.png",
         desc: "Linux: Learn to manage Linux servers. Networking: TCP/IP, DNS, HTTP/HTTPS, Firewalls. Resources: Linux Academy, Cisco Networking Academy.",
     },
     {
@@ -18,12 +18,12 @@ const roadmap = [
     },
     {
         title: "Choose a Cloud Providers",
-        icon: "https://cdn-icons-png.flaticon.com/512/2906/2906206.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/5776/5776304.png",
         desc: "AWS: EC2, S3, RDS, Lambda. Azure: VMs, App Services, Azure Functions. Google Cloud: Compute Engine, Kubernetes Engine. Resources: Tutorials from AWS, Azure, Google Cloud.",
     },
     {
         title: "Learn Cloud Architecture and Services",
-        icon: "https://cdn-icons-png.flaticon.com/512/2103/2103533.png",
+        icon: "https://cdn-icons-png.flaticon.com/512/7792/7792116.png",
         desc: "Compute: EC2, Lambda, VMs. Storage: S3, Blob Storage, DynamoDB. Networking: VPC, CDN, Load Balancers. Resources: Whitepapers, cloud vendor documentation.",
     },
     {
@@ -55,7 +55,7 @@ const roadmap = [
 
 const RoadmapCloud = () => {
     return (
-        <RoadmapTemplate roadmap={roadmap} heading="Cloud Computing" />
+        <RoadmapTemplate roadmap={roadmap} heading="Cloud Computing" resources="cloud Computing.pdf" />
     );
 };
 

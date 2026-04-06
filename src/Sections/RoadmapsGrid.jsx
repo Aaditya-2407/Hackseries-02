@@ -5,48 +5,62 @@ import {
     BrainCircuit,
     Terminal,
     Layers,
-    ArrowUpRight,
     GitPullRequestArrow,
     Cloudy
 } from "lucide-react";
+
+/* ArrowUpRight, */
+
+import webImage from "../assets/web.png";
+import aiImage from "../assets/ai.png";
+import cloudImage from "../assets/cloud.png";
+import pythonImage from "../assets/python.png";
+import graphImage from "../assets/graph.png";
+import gitImage from "../assets/git.png";
 
 const roadmaps = [
     {
         title: "Web Development",
         link: "/roadmaps/webdev",
         icon: <Code className="size-10" />,
-        description: "Master Modern Frontend and Backend technologies."
+        description: "Master Modern Frontend and Backend technologies.",
+        image: webImage
     },
     {
-        title: "AI & ML - Basics to Advance",
+        title: "AI & ML",
         link: "/roadmaps/aiml",
         icon: <BrainCircuit className="size-10" />,
-        description: "Dive into Intelligence, Data Science and Neural Networks."
+        description: "Dive into Intelligence, Data Science and Neural Networks.",
+        image: aiImage
     },
     {
         title: "Cloud Computing",
         link: "/roadmaps/cloud",
         icon: <Cloudy className="size-10" />,
-        description: "Scale applications globally using AWS, Azure and GCP."
+        description: "Scale applications globally using AWS, Azure and GCP.",
+        image: cloudImage
     },
     {
         title: "Programming Language",
         link: "/roadmaps/programming",
         icon: <Terminal className="size-10" />,
-        description: "Core concepts of C++, Java and Python for efficiency."
+        description: "Core concepts of C++, Java and Python for efficiency.",
+        image: pythonImage
     },
     {
         title: "Data Structure & Algorithms",
         link: "/roadmaps/dsa",
         icon: <Layers className="size-10" />,
-        description: "Optimize your code with advanced DSA techniques."
+        description: "Optimize your code with advanced DSA techniques.",
+        image: graphImage
     },
     {
         title: "Git & Github",
         link: "./docs/git-cheat-sheet-education.pdf",
         target: "_blank",
         icon: <GitPullRequestArrow className="size-10" />,
-        description: "Essential version control and collaboration skills."
+        description: "Essential version control and collaboration skills.",
+        image: gitImage
     },
 ];
 
@@ -67,8 +81,8 @@ const RoadmapGrid = () => {
     };
 
     return (
-        <section id="roadmaps" className="bg-black py-24 text-white relative border-t border-white/10 overflow-hidden">
-            <div className="w-full px-4 md:px-[6vw]">
+        <section className="relative px-6 md:px-20 py-24 bg-[#010101] overflow-hidden min-h-screen">
+            <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -91,6 +105,7 @@ const RoadmapGrid = () => {
                     viewport={{ once: true }}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
+
                     {roadmaps.map((item, index) => {
                         const isExternal = item.target === "_blank";
                         const CardWrapper = isExternal ? "a" : Link;
@@ -100,30 +115,34 @@ const RoadmapGrid = () => {
                             <motion.div key={index} variants={itemAnim}>
                                 <CardWrapper
                                     {...extraProps}
-                                    className="relative group block h-full p-8 bg-[#0a0a0a] border-white/10 hover:border hover:border-[#D4AF37]/50 transition-all duration-500 overflow-hidden"
+                                    className="relative group block h-60 p-8 bg-[#0a0a0a] border-white/10 hover:border hover:border-[#D4AF37]/50 transition-all duration-500 overflow-hidden"
                                 >
-                                    
+
+                                    <div className="absolute top-0 right-0">
+                                        <img src={item.image} alt={item.title} className="w-40 invert" />
+                                    </div>
 
                                     <div className="relative z-10 h-full flex flex-col">
+
+                                        <h3 className="absolute bottom-0 left-0 text-2xl font-boldonse font-bold text-white mb-3 group-hover:text-[#D4AF37] transition-colors">
+                                            {item.title}
+                                        </h3>
+
                                         <div className="flex justify-between items-start mb-6">
                                             <div className="p-3 text-[#D4AF37]">
                                                 {item.icon}
                                             </div>
-                                            <ArrowUpRight className="w-6 h-6 text-white/20 group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                                            {/* <ArrowUpRight className="w-6 h-6 text-white/20 group-hover:text-[#D4AF37] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" /> */}
                                         </div>
-
-                                        <h3 className="text-2xl font-boldonse font-bold text-white mb-3 group-hover:text-[#D4AF37] transition-colors">
-                                            {item.title}
-                                        </h3>
 
                                         {/* <p className="text-gray-400 text-sm leading-relaxed mb-auto">
                                             {item.description}
                                         </p> */}
 
-                                        <div className="mt-8 flex items-center text-gray-400 group-hover:text-[#D4AF37] text-xs font-bold tracking-widest uppercase transition-all duration-300">
+                                        {/* <div className="mt-8 flex items-center text-gray-400 group-hover:text-[#D4AF37] text-xs font-bold tracking-widest uppercase transition-all duration-300">
                                             Explore Path
                                             <div className="ml-2 w-8 h-px bg-gray-400 group-hover:bg-[#D4AF37]" />
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     {/* Corner Accent */}

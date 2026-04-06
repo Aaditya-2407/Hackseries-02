@@ -36,12 +36,15 @@ function Home() {
   )
 }
 
+import Registration from './Pages/Registration'
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/roadmaps" element={<Outlet />}>
           <Route path="webdev" element={<RoadmapWebDev />} />
           <Route path="aiml" element={<RoadmapAIML />} />

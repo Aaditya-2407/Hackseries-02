@@ -42,9 +42,9 @@ const Header = () => {
 
                     {/* Right Button */}
                     <div className="hidden lg:flex items-center justify-end">
-                        <button className="px-6 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase rounded-full whitespace-nowrap">
+                        <Link to="/registration" className="px-6 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase rounded-full whitespace-nowrap block text-center">
                             REGISTRATION
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Mobile Toggle */}
@@ -73,9 +73,9 @@ const Header = () => {
                         <Link to={link.href} className="block">{link.name}</Link>
                     </div>
                 ))}
-                <button className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full">
+                <Link to="/registration" onClick={() => setIsOpen(false)} className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full block text-center">
                     REGISTRATION
-                </button>
+                </Link>
             </div>
         </div>
         </>

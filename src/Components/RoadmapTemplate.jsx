@@ -77,7 +77,7 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
     }, []);
 
     return (
-        <div className="bg-[#010101] min-h-screen text-white selection:bg-[#D4AF37]/30">
+        <div className="bg-[#010101] min-h-screen text-white selection:bg-[#D4AF37]/30 max-w-500 mx-auto pt-15 md:pt-5">
             {/* Header Section */}
             <div className="relative py-16 md:py-24 px-6 overflow-hidden">
                 {/* Background Glow */}
@@ -163,7 +163,7 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
                                         <div
                                             className={`relative bg-[#0c0c0c] p-8 rounded-2xl transition-all duration-300 [clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] pl-20 md:pl-8 translate-x-5 md:translate-0 ${index % 2 === 0
                                                 ? "md:[clip-path:polygon(0_0,85%_0,100%_50%,85%_100%,0_100%)] md:pr-16"
-                                                : "md:[clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] md:pl-20"
+                                                : "md:[clip-path:polygon(15%_0,100%_0,100%_100%,15%_100%,0_50%)] md:pl-20 lg:pl-25"
                                                 }`}
                                         >
                                             {/* Decorative Corner */}

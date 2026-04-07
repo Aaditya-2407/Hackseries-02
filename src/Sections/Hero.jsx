@@ -17,9 +17,9 @@ const Hero = () => {
                 />
             </div>
             <div className="absolute inset-0 bg-black/45 lg:bg-transparent z-5 pointer-events-none" />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-12 min-h-[80vh]">
+            <div className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-10 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row-reverse items-center justify-center gap-8 lg:gap-16 xl:gap-20 min-h-[80vh]">
 
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-1/2 lg:justify-start lg:z-auto lg:pointer-events-auto">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-[42%] lg:justify-start lg:z-auto lg:pointer-events-auto">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -43,7 +43,7 @@ const Hero = () => {
                     </motion.div>
                 </div>
 
-                <div className="w-full lg:w-[55%] flex flex-col items-start text-left z-20 px-2 sm:px-4 -mt-8 sm:-mt-4 lg:mt-0 lg:pl-10 xl:pl-16 lg:pr-4">
+                <div className="w-full lg:w-[48%] flex flex-col items-start text-left z-20 px-2 sm:px-4 -mt-8 sm:-mt-4 lg:mt-0 lg:pl-10 xl:pl-16 lg:pr-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Send, Phone, Mail, MapPin } from 'lucide-react';
+import { ArrowLeft, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
@@ -14,39 +14,47 @@ const ContactUs = () => {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        // Clear status when user starts typing again
+        if (submitStatus) setSubmitStatus(null);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus(null);
 
-        const url = "https://script.google.com/macros/s/AKfycbzWMuEajUXjNABzWHesGEzyqVntxkBDaCGqtwAMOmVxqpd2WNJBO-2rQ7HFb6YOyHwb4w/exec";
+        const url = "https://script.google.com/macros/s/AKfycbzoKgq7FkrJY8igkN5xguk_Yq42vBFWnler2FZ1f1-ys5SLcGwL8Ae3SPpE84EDJ5lb/exec";
 
-        const params = new URLSearchParams();
-        params.append('name', formData.name);
-        params.append('email', formData.email);
-        params.append('phone', formData.phone);
-        params.append('message', formData.message);
+        // Use GET request with URL parameters instead of POST
+        // This is more reliable with Google Apps Script
+        const params = new URLSearchParams({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message
+        });
 
         try {
-            const res = await fetch(url, {
-                method: "POST",
-                mode: "no-cors",
-                body: params,
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
+            // Try GET request first (more reliable for testing)
+            const response = await fetch(`${url}?${params.toString()}`, {
+                method: "GET",
             });
 
-
-            alert("Your message has been successfully submitted!");
-            setFormData({ name: '', email: '', phone: '', message: '' });
+            console.log('Response status:', response.status);
+            
+            if (response.ok) {
+                setSubmitStatus('success');
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                setSubmitStatus('error');
+            }
         } catch (error) {
-            console.error('Error:', error);
-            alert("Something went wrong. Please try again.");
+            console.error('Error submitting form:', error);
+            setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
         }
@@ -91,6 +99,21 @@ const ContactUs = () => {
                             </h2>
 
                             <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10 text-left">
+
+                                {/* Success/Error Messages */}
+                                {submitStatus === 'success' && (
+                                    <div className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 animate-fade-in">
+                                        <CheckCircle size={20} className="flex-shrink-0" />
+                                        <p className="text-sm font-medium">Your message has been sent successfully! We'll get back to you soon.</p>
+                                    </div>
+                                )}
+
+                                {submitStatus === 'error' && (
+                                    <div className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 animate-fade-in">
+                                        <AlertCircle size={20} className="flex-shrink-0" />
+                                        <p className="text-sm font-medium">Something went wrong. Please try again or contact us directly.</p>
+                                    </div>
+                                )}
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div className="flex flex-col gap-2">

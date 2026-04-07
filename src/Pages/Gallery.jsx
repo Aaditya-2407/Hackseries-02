@@ -5,25 +5,32 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 // Importing generated images
-import img1 from '../assets/gallery/1.jpeg';
-import img2 from '../assets/gallery/2.jpeg';
-import img3 from '../assets/gallery/3.jpeg';
-import img4 from '../assets/gallery/4.jpeg';
-import img5 from '../assets/gallery/5.jpeg';
-import img6 from '../assets/gallery/6.jpeg';
-import img7 from '../assets/gallery/7.jpeg';
-import img8 from '../assets/gallery/8.jpeg';
-import img9 from '../assets/gallery/9.jpeg';
-import img10 from '../assets/gallery/10.jpeg';
-import img11 from '../assets/gallery/11.jpeg';
-import img12 from '../assets/gallery/12.jpeg';
-import img13 from '../assets/gallery/13.jpeg';
-import img14 from '../assets/gallery/14.jpeg';
-import img15 from '../assets/gallery/15.jpeg';
-import img16 from '../assets/gallery/16.jpeg';
-import img17 from '../assets/gallery/17.jpeg';
-import img18 from '../assets/gallery/18.jpeg';
-import img19 from '../assets/gallery/19.jpeg';
+import img1 from '../assets/gallery/1.jpg';
+import img2 from '../assets/gallery/2.jpg';
+import img3 from '../assets/gallery/3.jpg';
+import img4 from '../assets/gallery/4.jpg';
+import img5 from '../assets/gallery/5.jpg';
+import img6 from '../assets/gallery/6.jpg';
+import img7 from '../assets/gallery/7.jpg';
+import img8 from '../assets/gallery/8.jpg';
+import img9 from '../assets/gallery/9.jpg';
+import img10 from '../assets/gallery/10.jpg';
+import img11 from '../assets/gallery/11.jpg';
+import img12 from '../assets/gallery/12.jpg';
+import img13 from '../assets/gallery/13.jpg';
+import img14 from '../assets/gallery/14.jpg';
+import img15 from '../assets/gallery/15.jpg';
+import img16 from '../assets/gallery/16.jpg';
+import img17 from '../assets/gallery/17.jpg';
+import img18 from '../assets/gallery/18.jpg';
+import img19 from '../assets/gallery/19.jpg';
+import img20 from '../assets/gallery/20.jpg';
+import img21 from '../assets/gallery/21.jpg';
+import img22 from '../assets/gallery/22.jpg';
+import img23 from '../assets/gallery/23.jpg';
+import img24 from '../assets/gallery/24.jpg';
+import img25 from '../assets/gallery/25.jpg';
+import img26 from '../assets/gallery/26.jpg';
 
 const Gallery = () => {
   const navigate = useNavigate();
@@ -33,22 +40,22 @@ const Gallery = () => {
     {
       id: 'hs01',
       title: 'Hackseries 01',
-      images: [img1, img2, img3, img4, img5, img12, img13, img14]
+      images: [img20, img21, img22, img23,img24]
     },
     {
       id: 'hs01-hackathon',
       title: 'Hackseries 01 Hackathon',
-      images: [img6, img7, img8, img9, img10, img11]
+      images: [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10 ]
     },
     {
       id: 'git-session',
       title: 'Git & GitHub Session',
-      images: [img12, img13]
+      images: [img25, img26]
     },
     {
       id: 'hs00-roadmap',
       title: 'Hackseries 00 Roadmap Session',
-      images: [img14, img15, img16, img17, img18, img19]
+      images: [img11, img12, img13, img14, img15, img16, img17, img18, img19]
     }
   ];
 
@@ -65,7 +72,7 @@ const Gallery = () => {
       <Header />
 
       <main className="relative z-10 w-full bg-black min-h-screen mb-[60vh] md:mb-[65vh] shadow-[0_50px_50px_rgba(0,0,0,0.5)]">
-        <div className="pt-32 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto w-full">
+        <div className="pt-40 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto w-full">
         {/* Header Section */}
         <div className="flex items-center mb-12 gap-6 relative">
             <button 
@@ -78,7 +85,7 @@ const Gallery = () => {
                 </div>
             </button>
             <div>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2 uppercase">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-2 uppercase">
                     {selectedAlbum ? selectedAlbum.title : <><span className="text-white">EVENT</span> <span className="text-[#D4AF37]">GALLERY</span></>}
                 </h1>
                 <p className="text-gray-400 font-light tracking-wide">
@@ -89,14 +96,14 @@ const Gallery = () => {
 
         {/* Gallery Grid */}
         {!selectedAlbum ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 lg:max-w-none">
                 {albums.map((album) => (
                     <div 
                         key={album.id}
                         onClick={() => setSelectedAlbum(album)}
                         className="relative group cursor-pointer overflow-hidden rounded-2xl border border-[#D4AF37]/20 hover:border-[#D4AF37]/80 transition-all duration-500 shadow-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] bg-[#0a0a0a]"
                     >
-                        <div className="aspect-[4/3] w-full overflow-hidden relative">
+                        <div className="aspect-[2/2.2] w-full overflow-hidden relative">
                             <img 
                                 src={album.images[0]} 
                                 alt={album.title} 

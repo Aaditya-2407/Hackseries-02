@@ -7,6 +7,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function useSmoothScroll() {
   useEffect(() => {
+    // Disable Lenis for mobile viewing mode
+    if (window.innerWidth <= 1024) return
+
     const lenis = new Lenis({
       duration: 1.1,
       smoothWheel: true,

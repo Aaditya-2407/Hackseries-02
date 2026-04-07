@@ -29,7 +29,7 @@ const Hero = () => {
                         opacity: { duration: 2 },
                         y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                     }}
-                    className="relative w-full lg:w-1/2 flex justify-center lg:justify-start"
+                    className="relative w-full lg:w-1/2 flex justify-start lg:justify-start"
                 >
                     <img
                         src={PhoenixLogo}

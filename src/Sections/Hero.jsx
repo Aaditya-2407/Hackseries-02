@@ -10,10 +10,10 @@ const Hero = () => {
                 <DarkVeil
                     hueShift={233}
                     noiseIntensity={0}
-                    scanlineIntensity={0}
-                    speed={0.5}
-                    scanlineFrequency={0}
-                    warpAmount={0}
+                    scanlineIntensity={0.2}
+                    speed={1}
+                    scanlineFrequency={0.5}
+                    warpAmount={0.5}
                 />
             </div>
             <div className="container mx-auto px-6 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">

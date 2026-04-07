@@ -15,6 +15,7 @@ import RoadmapCloud from './Pages/RoadmapCloud'
 
 import Gallery from './Pages/Gallery'
 import ContactUs from './Pages/ContactUs'
+import useSmoothScroll from './hooks/useSmoothScroll'
 
 function Home() {
   return (
@@ -30,6 +31,8 @@ function Home() {
 import Registration from './Pages/Registration'
 
 function App() {
+  useSmoothScroll()
+
   return (
     <BrowserRouter>
       <div className="relative w-full bg-black overflow-x-hidden">

@@ -50,10 +50,11 @@ const Why = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: `+=${window.innerHeight * 3}`,
+                end: () => `+=${window.innerHeight * (ScrollTrigger.isTouch ? 2.2 : 3)}`,
                 scrub: 1,
                 pin: true,
-                anticipatePin: 1
+                anticipatePin: 1,
+                invalidateOnRefresh: true
             }
         });
 

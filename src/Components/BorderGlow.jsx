@@ -107,31 +107,6 @@ const BorderGlow = ({
     setCursorAngle(getCursorAngle(card, x, y));
   }, [getEdgeProximity, getCursorAngle]);
 
-  const handleTouchMove = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card || !e.touches[0]) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.touches[0].clientX - rect.left;
-    const y = e.touches[0].clientY - rect.top;
-    setEdgeProximity(getEdgeProximity(card, x, y));
-    setCursorAngle(getCursorAngle(card, x, y));
-  }, [getEdgeProximity, getCursorAngle]);
-
-  const handleTouchStart = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card || !e.touches[0]) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.touches[0].clientX - rect.left;
-    const y = e.touches[0].clientY - rect.top;
-    setCursorAngle(getCursorAngle(card, x, y));
-    setEdgeProximity(1);
-    setIsHovered(true);
-  }, [getCursorAngle]);
-
-  const endTouchGlow = useCallback(() => {
-    animateValue({ duration: 600, start: 100, end: 0, onUpdate: v => setEdgeProximity(v / 100), onEnd: () => setIsHovered(false) });
-  }, []);
-
   useEffect(() => {
     if (!animated) return;
     const angleStart = 110;
@@ -172,9 +147,6 @@ const BorderGlow = ({
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={endTouchGlow}
       className={`relative grid isolate border border-white/15 ${className}`}
       style={{
         background: backgroundColor,

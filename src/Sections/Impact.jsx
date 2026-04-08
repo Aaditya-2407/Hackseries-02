@@ -2,9 +2,10 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Shield, Network, Globe2, Crown, Code2, Workflow, Target, Puzzle, Award, UserPlus, Database, Cloud } from 'lucide-react';
 import BorderGlow from '../Components/BorderGlow';
+
 const Impact = () => {
     const canvasRef = useRef(null);
-    // Exact user content mapping with updated icons 
+    // Exact user content mapping with updated icons
     const impacts = {
         technical: {
             title: "Technical Proficiency",

@@ -7,6 +7,7 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
 
     const goToHomeHero = (e) => {
         e.preventDefault();
@@ -19,7 +20,7 @@ const Header = () => {
 
         const homeSection = document.getElementById('home');
         if (homeSection) {
-            homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            homeSection.scrollIntoView({ behavior: 'auto', block: 'start' });
             window.history.replaceState(null, '', '/#home');
         }
     };
@@ -61,9 +62,9 @@ const Header = () => {
                         </ul>
 
                         <div className="hidden lg:flex items-center justify-end">
-                            <Link to="/registration" className="px-6 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase rounded-full whitespace-nowrap block text-center">
-                                REGISTRATION
-                            </Link>
+                            <a href={registrationFormUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs font-bold hover:bg-[#D4AF37] hover:text-black transition-all uppercase rounded-full whitespace-nowrap block text-center">
+                                REGISTER NOW
+                            </a>
                         </div>
 
                         <div className="lg:hidden flex items-center">
@@ -95,9 +96,9 @@ const Header = () => {
                             )}
                         </div>
                     ))}
-                    <Link to="/registration" onClick={() => setIsOpen(false)} className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full block text-center">
-                        REGISTRATION
-                    </Link>
+                    <a href={registrationFormUrl} onClick={() => setIsOpen(false)} target="_blank" rel="noopener noreferrer" className="mt-6 px-10 py-4 bg-[#D4AF37] text-black font-bold text-lg rounded-full block text-center">
+                        REGISTER NOW
+                    </a>
                 </div>
             </div>
         </>

@@ -4,6 +4,8 @@ import PhoenixLogo from '../assets/phoenix-vector.svg';
 import DarkVeil from '../Components/DarkVeil'
 
 const Hero = () => {
+    const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header'
+
     return (
         <section id="home" className="relative min-h-screen w-full bg-[#060010] flex items-center justify-center overflow-hidden">
             <div className="absolute -inset-10 md:-inset-20 z-0 scale-105">
@@ -69,12 +71,12 @@ const Hero = () => {
                         transition={{ delay: 1.5 }}
                         className="mt-14 md:mt-10 flex flex-col sm:flex-row gap-6 w-full sm:w-auto z-20"
                     >
-                        <a href="https://aces-hackseries.vercel.app/docs/Job%20Description.pdf"
+                        <a href={registrationFormUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-8 md:px-12 py-4 bg-[#D4AF37] text-black font-boldonse font-bold tracking-[0.2em] hover:bg-white hover:scale-105 transition-all duration-300 text-center flex items-center justify-center text-sm md:text-base"
                         >
-                            Opportunities
+                            Register Now
                         </a>
                         <button className="px-8 md:px-12 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-boldonse font-bold tracking-[0.2em] hover:bg-[#D4AF37] hover:text-black hover:scale-105 transition-all duration-300 text-sm md:text-base">
                             LEARN MORE

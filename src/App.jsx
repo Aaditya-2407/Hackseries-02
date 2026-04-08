@@ -15,7 +15,6 @@ import RoadmapCloud from './Pages/RoadmapCloud'
 
 import Gallery from './Pages/Gallery'
 import ContactUs from './Pages/ContactUs'
-import useSmoothScroll from './hooks/useSmoothScroll'
 
 function Home() {
   return (
@@ -28,11 +27,7 @@ function Home() {
   )
 }
 
-import Registration from './Pages/Registration'
-
 function App() {
-  useSmoothScroll()
-
   return (
     <BrowserRouter>
       <div className="relative w-full bg-black overflow-x-hidden">
@@ -42,7 +37,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/registration" element={<Registration />} />
           <Route path="/roadmaps" element={<Outlet />}>
             <Route path="webdev" element={<RoadmapWebDev />} />
             <Route path="aiml" element={<RoadmapAIML />} />

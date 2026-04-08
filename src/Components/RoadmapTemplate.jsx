@@ -69,12 +69,12 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
     }
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
     };
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }, [heading]);
 
     return (
         <div className="bg-[#010101] min-h-screen text-white selection:bg-[#D4AF37]/30">

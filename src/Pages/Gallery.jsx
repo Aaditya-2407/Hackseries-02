@@ -38,7 +38,7 @@ const Gallery = () => {
     {
       id: 'hs01-hackathon',
       title: 'Hackseries 01 Hackathon',
-      images: [img6, img7, img8, img9, img10, img11]
+      images: [img9, img7, img8, img6, img10, img11]
     },
     {
       id: 'git-session',

@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unknown-property */
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
 import { Suspense, useRef, useLayoutEffect, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useLoader, useThree, invalidate } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useFBX, useProgress, Html, Environment, ContactShadows } from '@react-three/drei';
@@ -93,7 +95,7 @@ const ModelInner = ({
         const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
         const s = 1 / (sphere.radius * 2);
         g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
-        g.scale.setScalar(s * 0.7);
+        g.scale.setScalar(s);
 
         g.traverse(o => {
             if (o.isMesh) {
@@ -425,6 +427,15 @@ const ModelViewer = ({
                 }}
                 camera={{ fov: cameraFov, position: [0, 0, camZ], near: 0.01, far: 100 }}
             >
+                <EffectComposer>
+                    <Bloom
+                        intensity={0}       // glow strength
+                        luminanceThreshold={0.8}
+                        luminanceSmoothing={0.2}
+                        blendFunction={BlendFunction.ADD}
+                    />
+                </EffectComposer>
+
                 {environmentPreset !== 'none' && <Environment preset={environmentPreset} background={false} />}
 
                 <ambientLight intensity={ambientIntensity} />

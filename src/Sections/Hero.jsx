@@ -6,14 +6,15 @@ import FloatingLines from '../Components/FloatingLines';
 import ModelViewer from '../Components/ModelViewer';
 import phoenixModel from '../assets/phoenix.glb';
 
+const phoenixBoxSize = {
+    width: 'clamp(24rem, 45vw, 42rem)',
+    height: 'clamp(24rem, 45vw, 42rem)'
+};
+
 const Hero = () => {
     const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
     const [isDesktop, setIsDesktop] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const phoenixBoxSize = {
-        width: 'clamp(18rem, 38vw, 34rem)',
-        height: 'clamp(18rem, 38vw, 34rem)'
-    };
 
     useEffect(() => {
         setIsDesktop(window.innerWidth >= 1024);

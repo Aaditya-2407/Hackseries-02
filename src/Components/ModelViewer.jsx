@@ -95,7 +95,7 @@ const ModelInner = ({
         const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
         const s = 1 / (sphere.radius * 2);
         g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
-        g.scale.setScalar(s);
+        g.scale.setScalar(s * 0.7);   // reduce size globally
 
         g.traverse(o => {
             if (o.isMesh) {
@@ -405,13 +405,15 @@ const ModelViewer = ({
                 width,
                 height,
                 touchAction: 'pan-y pinch-zoom',
-                position: 'relative'
+                position: 'relative',
+                overflow: 'hidden'
             }}
         >
 
             <Canvas
                 shadows
                 frameloop="demand"
+                dpr={[1, 1.5]}
                 gl={{ preserveDrawingBuffer: true, alpha: true }}
                 style={{
                     background: "transparent",

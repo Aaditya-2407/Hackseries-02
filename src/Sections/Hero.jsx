@@ -59,7 +59,10 @@ const Hero = () => {
             <div className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-10 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row-reverse items-center justify-center lg:justify-between gap-8 lg:gap-16 xl:gap-20 min-h-[80vh]">
 
                 {!mounted ? null : isDesktop ? (
-                    <div className="w-full lg:w-[46%] flex justify-center lg:justify-end pointer-events-none lg:pointer-events-auto">
+                    <div
+                        className="w-full lg:w-[50%] flex justify-center lg:justify-end"
+                        style={{ overflow: "hidden" }}
+                    >
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -68,7 +71,7 @@ const Hero = () => {
                                 scale: { duration: 2, ease: "easeOut" }
                             }}
                             className="relative flex items-center justify-center opacity-40 lg:opacity-100"
-                            style={phoenixBoxSize}
+                            style={{ width: 'clamp(20rem, 40vw, 36rem)', height: 'clamp(20rem, 40vw, 36rem)' }}
                         >
                             <ModelViewer
                                 url={phoenixModel}

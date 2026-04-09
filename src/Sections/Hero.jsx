@@ -72,9 +72,9 @@ const Hero = () => {
                                 height="100%"
                                 defaultRotationX={0}
                                 defaultRotationY={90}
-                                defaultZoom={0.22}
-                                minZoomDistance={0.22}
-                                maxZoomDistance={0.22}
+                                defaultZoom={0.16}
+                                minZoomDistance={0.16}
+                                maxZoomDistance={0.16}
                                 cameraFov={45}
                                 modelXOffset={0}
                                 modelYOffset={0}

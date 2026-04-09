@@ -110,7 +110,7 @@ const Hero = () => {
                         </motion.div>
                     </div>
                 ) : (
-                    <div className="w-full lg:w-[46%] flex justify-center lg:justify-end pointer-events-none lg:pointer-events-auto">
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-[40%] lg:justify-start lg:ml-auto lg:z-auto lg:pointer-events-auto">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -118,14 +118,12 @@ const Hero = () => {
                                 opacity: { duration: 2 },
                                 scale: { duration: 2, ease: "easeOut" }
                             }}
-                            className="relative flex items-center justify-center opacity-40 lg:opacity-100"
-
+                            className="relative w-full flex justify-center lg:justify-end lg:translate-x-4 xl:translate-x-8"
                         >
                             <img
                                 src={PhoenixLogo}
                                 alt="Phoenix"
-                                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                                className="brightness-90 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                                className="w-80 h-80 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
                             />
                             <motion.div
                                 animate={{ opacity: [0.1, 0.4, 0.1] }}

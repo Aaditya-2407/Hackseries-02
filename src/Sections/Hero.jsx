@@ -10,8 +10,8 @@ const Hero = () => {
     const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
     const phoenixBoxSize = {
-        width: 'clamp(24rem, 45vw, 42rem)',
-        height: 'clamp(24rem, 45vw, 42rem)'
+        width: 'clamp(18rem, 38vw, 34rem)',
+        height: 'clamp(18rem, 38vw, 34rem)'
     };
 
     useEffect(() => {
@@ -72,9 +72,9 @@ const Hero = () => {
                                 height="100%"
                                 defaultRotationX={0}
                                 defaultRotationY={90}
-                                defaultZoom={0.11}
-                                minZoomDistance={0.11}
-                                maxZoomDistance={0.11}
+                                defaultZoom={0.16}
+                                minZoomDistance={0.16}
+                                maxZoomDistance={0.16}
                                 cameraFov={45}
                                 modelXOffset={0}
                                 modelYOffset={0}
@@ -111,7 +111,7 @@ const Hero = () => {
                             <img
                                 src={PhoenixLogo}
                                 alt="Phoenix"
-                                className="w-56 h-56 md:w-[280px] md:h-[280px] lg:w-[350px] lg:h-[350px] object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
+                                className="w-lg h-128 sm:w-160 sm:h-160 md:w-3xl md:h-192 lg:w-lg lg:h-128 xl:w-xl xl:h-144 object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
                             />
                             <motion.div
                                 animate={{ opacity: [0.1, 0.4, 0.1] }}

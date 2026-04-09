@@ -9,6 +9,10 @@ import phoenixModel from '../assets/phoenix.glb';
 const Hero = () => {
     const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+    const phoenixBoxSize = {
+        width: 'clamp(18rem, 38vw, 34rem)',
+        height: 'clamp(18rem, 38vw, 34rem)'
+    };
 
     useEffect(() => {
         const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
@@ -51,7 +55,7 @@ const Hero = () => {
             <div className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-10 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row-reverse items-center justify-center lg:justify-between gap-8 lg:gap-16 xl:gap-20 min-h-[80vh]">
 
                 {isDesktop ? (
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-[50%] lg:justify-start lg:ml-auto lg:z-auto lg:pointer-events-auto h-[60vh] lg:h-[80vh]">
+                    <div className="w-full lg:w-[46%] flex justify-center lg:justify-end pointer-events-none lg:pointer-events-auto">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -59,7 +63,8 @@ const Hero = () => {
                                 opacity: { duration: 2 },
                                 scale: { duration: 2, ease: "easeOut" }
                             }}
-                            className="relative w-full h-full flex justify-center lg:justify-end lg:translate-x-4 xl:translate-x-8 opacity-40 lg:opacity-100"
+                            className="relative flex items-center justify-center opacity-40 lg:opacity-100"
+                            style={phoenixBoxSize}
                         >
                             <ModelViewer
                                 url={phoenixModel}
@@ -92,7 +97,7 @@ const Hero = () => {
                         </motion.div>
                     </div>
                 ) : (
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] sm:w-[120%] flex justify-center -z-10 pointer-events-none lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 lg:w-[40%] lg:justify-start lg:ml-auto lg:z-auto lg:pointer-events-auto">
+                    <div className="w-full lg:w-[46%] flex justify-center lg:justify-end pointer-events-none lg:pointer-events-auto">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -100,12 +105,13 @@ const Hero = () => {
                                 opacity: { duration: 2 },
                                 scale: { duration: 2, ease: "easeOut" }
                             }}
-                            className="relative w-full flex justify-center lg:justify-end lg:translate-x-4 xl:translate-x-8"
+                            className="relative flex items-center justify-center opacity-40 lg:opacity-100"
+                            style={phoenixBoxSize}
                         >
                             <img
                                 src={PhoenixLogo}
                                 alt="Phoenix"
-                                className="w-80 h-80 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
+                                className="w-full h-full object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]"
                             />
                             <motion.div
                                 animate={{ opacity: [0.1, 0.4, 0.1] }}

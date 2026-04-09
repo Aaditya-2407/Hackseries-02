@@ -111,7 +111,7 @@ const Hero = () => {
                             <img
                                 src={PhoenixLogo}
                                 alt="Phoenix"
-                                className="w-full h-full object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                                className="w-lg h-128 sm:w-160 sm:h-160 md:w-3xl md:h-192 lg:w-lg lg:h-128 xl:w-xl xl:h-144 object-contain brightness-90 lg:brightness-150 contrast-125 drop-shadow-[0_0_30px_rgba(212,175,55,0.4)] max-w-none lg:max-w-full opacity-40 lg:opacity-100"
                             />
                             <motion.div
                                 animate={{ opacity: [0.1, 0.4, 0.1] }}

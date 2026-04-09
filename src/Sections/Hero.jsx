@@ -71,12 +71,12 @@ const Hero = () => {
                                 scale: { duration: 2, ease: "easeOut" }
                             }}
                             className="relative flex items-center justify-center opacity-40 lg:opacity-100"
-                            style={{ width: 'clamp(20rem, 40vw, 36rem)', height: 'clamp(20rem, 40vw, 36rem)' }}
+                            style={{ width: 550, height: 550 }}
                         >
                             <ModelViewer
                                 url={phoenixModel}
-                                width="100%"
-                                height="100%"
+                                width={550}
+                                height={550}
                                 defaultRotationX={0}
                                 defaultRotationY={90}
                                 defaultZoom={0.22}

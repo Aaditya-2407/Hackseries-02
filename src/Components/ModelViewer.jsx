@@ -95,7 +95,7 @@ const ModelInner = ({
         const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
         const s = 1 / (sphere.radius * 2);
         g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
-        g.scale.setScalar(s * 0.7);   // reduce size globally
+        g.scale.setScalar(s * 0.10);
 
         g.traverse(o => {
             if (o.isMesh) {

@@ -99,16 +99,10 @@ const ModelInner = ({
 
         g.traverse(o => {
             if (o.isMesh) {
-                // o.castShadow = true;
-                // o.receiveShadow = true;
-                // o.material.emissive = new THREE.Color("#ff4d00"); // 🔥 orange glow
-                // o.material.emissiveIntensity = 0.4;
+
                 o.material.metalness = 0.6;
                 o.material.roughness = 0.25;
-                // if (fadeIn) {
-                //   o.material.transparent = true;
-                //   o.material.opacity = 0;
-                // }
+
             }
         });
 

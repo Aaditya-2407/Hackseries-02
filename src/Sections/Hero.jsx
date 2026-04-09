@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PhoenixLogo from '../assets/phoenix-vector.svg';
 import DarkVeil from '../Components/DarkVeil';
@@ -15,6 +15,8 @@ const Hero = () => {
     const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
     const [isDesktop, setIsDesktop] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const containerRef = useRef(null);
+    const [canvasSize, setCanvasSize] = useState(null);
 
     useEffect(() => {
         setIsDesktop(window.innerWidth >= 1024);
@@ -23,6 +25,16 @@ const Hero = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    useEffect(() => {
+        if (!containerRef.current) return;
+        const ro = new ResizeObserver(entries => {
+            const { width } = entries[0].contentRect;
+            if (width > 0) setCanvasSize(Math.round(width));
+        });
+        ro.observe(containerRef.current);
+        return () => ro.disconnect();
+    }, [mounted]);
 
     return (
         <section id="home" className="relative min-h-screen w-full bg-[#060010] flex items-center justify-center overflow-hidden">
@@ -60,6 +72,7 @@ const Hero = () => {
 
                 {!mounted ? null : isDesktop ? (
                     <div
+                        ref={containerRef}
                         className="w-full lg:w-[50%] flex justify-center lg:justify-end"
                         style={{ overflow: "hidden" }}
                     >
@@ -73,28 +86,32 @@ const Hero = () => {
                             className="relative flex items-center justify-center opacity-40 lg:opacity-100"
                             style={{ width: 550, height: 550 }}
                         >
-                            <ModelViewer
-                                url={phoenixModel}
-                                width={550}
-                                height={550}
-                                defaultRotationX={0}
-                                defaultRotationY={90}
-                                defaultZoom={0.22}
-                                minZoomDistance={0.22}
-                                maxZoomDistance={0.22}
-                                cameraFov={45}
-                                modelXOffset={0}
-                                modelYOffset={0}
-                                enableHoverRotation={false}
-                                enableManualRotation={true}
-                                autoRotate={false}
-                                environmentPreset="studio"
-                                ambientIntensity={0.3}
-                                keyLightIntensity={0.8}
-                                fillLightIntensity={0.2}
-                                rimLightIntensity={1.5}
-                                shadowOpacity={0.5}
-                            />
+                            {canvasSize ? (
+                                <ModelViewer
+                                    url={phoenixModel}
+                                    width={canvasSize}
+                                    height={canvasSize}
+                                    defaultRotationX={0}
+                                    defaultRotationY={90}
+                                    defaultZoom={0.22}
+                                    minZoomDistance={0.22}
+                                    maxZoomDistance={0.22}
+                                    cameraFov={45}
+                                    modelXOffset={0}
+                                    modelYOffset={0}
+                                    enableHoverRotation={false}
+                                    enableManualRotation={true}
+                                    autoRotate={false}
+                                    environmentPreset="studio"
+                                    ambientIntensity={0.3}
+                                    keyLightIntensity={0.8}
+                                    fillLightIntensity={0.2}
+                                    rimLightIntensity={1.5}
+                                    shadowOpacity={0.5}
+                                />
+                            ) : (
+                                <div style={{ width: 550, height: 550 }} />
+                            )}
                             {/* Subtle gold glow behind the model */}
                             <motion.div
                                 animate={{ opacity: [0.2, 0.45, 0.2] }}

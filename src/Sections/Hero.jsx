@@ -8,13 +8,16 @@ import phoenixModel from '../assets/phoenix.glb';
 
 const Hero = () => {
     const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+    const [isDesktop, setIsDesktop] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const phoenixBoxSize = {
         width: 'clamp(18rem, 38vw, 34rem)',
         height: 'clamp(18rem, 38vw, 34rem)'
     };
 
     useEffect(() => {
+        setIsDesktop(window.innerWidth >= 1024);
+        setMounted(true);
         const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -22,7 +25,7 @@ const Hero = () => {
 
     return (
         <section id="home" className="relative min-h-screen w-full bg-[#060010] flex items-center justify-center overflow-hidden">
-            {isDesktop ? (
+            {!mounted ? null : isDesktop ? (
                 <div className="absolute inset-0 z-0 opacity-50">
                     <FloatingLines
                         enabledWaves={['top', 'middle', 'bottom']}
@@ -54,7 +57,7 @@ const Hero = () => {
 
             <div className="container mx-auto px-2 sm:px-4 lg:px-8 xl:px-10 mt-12 md:mt-20 relative z-10 flex flex-col lg:flex-row-reverse items-center justify-center lg:justify-between gap-8 lg:gap-16 xl:gap-20 min-h-[80vh]">
 
-                {isDesktop ? (
+                {!mounted ? null : isDesktop ? (
                     <div className="w-full lg:w-[46%] flex justify-center lg:justify-end pointer-events-none lg:pointer-events-auto">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}

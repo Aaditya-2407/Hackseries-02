@@ -12,7 +12,7 @@ const phoenixBoxSize = {
 };
 
 const Hero = () => {
-    const registrationFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSe1ebYzaaolZlJPmLYB99PmG3A-y4iHHrR_5YSehi_8hEV3BQ/viewform?usp=header';
+    const registrationFormUrl = 'https://campusmeet.in/go.php?slug=hackseries-2';
     const [isDesktop, setIsDesktop] = useState(false);
     const [mounted, setMounted] = useState(false);
     const [modelKey, setModelKey] = useState(0);

@@ -69,7 +69,45 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
     }
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'auto' });
+        const startPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+        if (startPosition <= 0) return;
+
+        const duration = Math.min(1200, Math.max(700, startPosition * 0.25));
+        const startTime = performance.now();
+        let animationFrameId;
+
+        const cancel = () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener("wheel", cancel);
+            window.removeEventListener("touchstart", cancel);
+        };
+
+        window.addEventListener("wheel", cancel, { passive: true });
+        window.addEventListener("touchstart", cancel, { passive: true });
+
+        const easeInOutCubic = (t) => {
+            return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        };
+
+        const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeInOutCubic(progress);
+
+            window.scrollTo(0, Math.round(startPosition * (1 - easedProgress)));
+
+            if (progress < 1) {
+                animationFrameId = requestAnimationFrame(step);
+            } else {
+                cancel();
+            }
+        };
+
+        animationFrameId = requestAnimationFrame(step);
     };
 
     useEffect(() => {
@@ -195,13 +233,28 @@ const RoadmapTemplate = ({ roadmap, heading, resources }) => {
                     </motion.div>
 
                     {/* Final Finish Indicator */}
-                    <div className="flex flex-col items-center mt-30" onClick={scrollToTop}>
-                        <div
-                            className="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-black shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+                    <div
+                        className="flex flex-col items-center mt-30 cursor-pointer group select-none"
+                        onClick={scrollToTop}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="Scroll to top"
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                e.preventDefault();
+                                scrollToTop();
+                            }
+                        }}
+                    >
+                        <motion.div
+                            whileHover={{ scale: 1.15, y: -4 }}
+                            whileTap={{ scale: 0.92 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                            className="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-black shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:shadow-[0_0_40px_rgba(212,175,55,0.85)] transition-shadow duration-300"
                         >
-                            <ChevronUpIcon size={16} />
-                        </div>
-                        <span className="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#D4AF37]">
+                            <ChevronUpIcon size={18} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
+                        </motion.div>
+                        <span className="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-[#D4AF37] group-hover:tracking-[0.4em] transition-all duration-300">
                             Scroll Up
                         </span>
                     </div>
